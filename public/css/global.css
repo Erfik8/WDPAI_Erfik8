@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+   }
+   nav {
+    background-color: black;
+    color: white;
+    height: 80px;
+    width: 100%;
+    font-size: 1.5rem;
+   }
+   nav > ul {
+    gap: 2em;
+   }
+   main {
+    width: 100%;
+    background-color: aquamarine;
+    display: flex;
+    
+   }
+   main > .elements {
+    background-color: beige;
+    width: calc((100vw / 3) * 2);
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: unset;
+    gap: 2em;
+    justify-content: center;
+    flex-direction: row;
+    padding: 2em;
+    box-sizing: border-box;
+   }
+   main > .sidebar {
+    background-color: rgb(255, 230, 210);
+    width: calc(100vw / 3);
+   }
+   main > h1{
+    width: inherit;
+    display: block;
+   }
+   .elements > .container > img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+   }
+   .flex-row-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+   
+img
+{
+    object-fit: cover;
+    width: 30vw;
+}
+
+nav, nav > ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav {
+    justify-content: space-between;
+}
