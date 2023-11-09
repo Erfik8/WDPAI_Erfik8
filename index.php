@@ -1,21 +1,24 @@
 <?php
 
-$path = $_SERVER["REQUEST_URI"];
+require_once __DIR__."/src/controllers/DefaultController.php";
 
+$path = $_SERVER["REQUEST_URI"];
 $path = trim($path, "/");
 
-echo $path;
+$actions = explode("/", $path);
 
-$actions = explode("/",$path);
+$routes = [
+    "login" => "DefaultController",
+    "dashboard" => "DefaultController"
+];
 
-if($actions[0] === 'dashboard')
-{
-    include '/public/src/dashboard.html';
+
+if(!array_key_exists($actions[0], $routes)) {
+    die("404 not found");
 }
-else
-{
-    include '/public/src/login.html';
-}
 
+$controller = new DefaultController();
+$controller = new $routes[$actions[0]]();
 
-echo 'Hi there 👋';
+$action = $actions[0];
+$controller->$action();

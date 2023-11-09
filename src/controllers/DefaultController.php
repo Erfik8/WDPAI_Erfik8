@@ -1,20 +1,14 @@
 <?php
 
-class DefaultController{
+class DefaultController {
 
-    function login()
-    {
-
+    function login() {
+        include __DIR__.'/../../public/views/login.html';
     }
 
-    function dashboard()
-    {
+    public function dashboard() {
 
+        var_dump("ok");
+        include __DIR__.'/../../public/views/dashboard.html';
     }
-
 }
-
-$routes = [
-    "login" -> "DefaultController",
-    "dashboard" -> "DefaultController"
-]
