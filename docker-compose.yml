@@ -18,3 +18,4 @@ services:
       dockerfile: docker/php/Dockerfile
     volumes:
       - .:/app/
+

@@ -1,24 +1,15 @@
 <?php
 
-require_once __DIR__."/src/controllers/DefaultController.php";
+define('__IMAGES__', 'public/images/');
 
-$path = $_SERVER["REQUEST_URI"];
-$path = trim($path, "/");
+require 'Routing.php';
 
-$actions = explode("/", $path);
+$path = trim($_SERVER['REQUEST_URI'], '/');
+$path = parse_url( $path, PHP_URL_PATH);
 
-$routes = [
-    "login" => "DefaultController",
-    "dashboard" => "DefaultController"
-];
+Router::get('', 'DefaultController');
+Router::get('dashboard', 'DefaultController');
+Router::get('filenotfound','ErrorController');
+Router::get('login','SecurityController');
 
-
-if(!array_key_exists($actions[0], $routes)) {
-    die("404 not found");
-}
-
-$controller = new DefaultController();
-$controller = new $routes[$actions[0]]();
-
-$action = $actions[0];
-$controller->$action();
+Router::run($path);
