@@ -11,5 +11,4 @@ Router::get('', 'DefaultController');
 Router::get('dashboard', 'DefaultController');
 Router::get('filenotfound','ErrorController');
 Router::get('login','SecurityController');
-
 Router::run($path);
