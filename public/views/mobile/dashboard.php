@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Web Page</title>
-    <link rel="stylesheet" href="public/css/dashboard-mobile.css"> <!-- You can link to an external CSS file here -->
+    <link rel="stylesheet" href="/public/css/dashboard-mobile.css"> <!-- You can link to an external CSS file here -->
     <style>
         /* You can also include inline styles here */
     </style>
@@ -94,58 +94,58 @@
         <div class="elements">
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
         </div>
     </main>
     <footer>
         <div class="icon-element">
-            <img src="public/images/dzwoneczek.png" alt="notification">
+            <img src="/public/images/dzwoneczek.png" alt="notification">
             <p>Powiadomienia</p>
         </div>
         <div class="icon-element">
-            <img src="public/images/search.png" alt="search">
+            <img src="/public/images/search.png" alt="search">
             <p>Szukaj</p>
         </div>
         <div class="user-element">
-            <img src="public/images/profile.png" alt="profile">
+            <img src="/public/images/profile.png" alt="profile">
             <div class="level-bar">
                 <div class="level-filler"></div>
             </div>
         </div>
 
         <div class="icon-element">
-            <img src="public/images/restaurant.png" alt="notification">
+            <img src="/public/images/restaurant.png" alt="notification">
             <p>Restauracje</p>
         </div>
         <div class="icon-element">
-            <img src="public/images/settings.png" alt="search">
+            <img src="/public/images/settings.png" alt="search">
             <p>Narzędzia</p>
         </div>
     </footer>

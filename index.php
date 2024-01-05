@@ -1,6 +1,6 @@
 <?php
 
-define('__IMAGES__', 'public/images/');
+define('__IMAGES__', '/public/images/');
 
 require 'Routing.php';
 
