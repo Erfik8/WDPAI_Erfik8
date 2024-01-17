@@ -20,32 +20,32 @@
         <div class="elements">
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
         </div>
@@ -57,32 +57,32 @@
         <div class="elements">
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
             <div class="element-block">
                 <a href="#">
-                    <img src="public/images/sloik.png" alt="sloik">
+                    <img src="/public/images/sloik.png" alt="sloik">
                 </a>
             </div>
         </div>
