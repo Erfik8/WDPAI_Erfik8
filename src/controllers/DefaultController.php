@@ -17,7 +17,16 @@ class DefaultController extends AppController {
 
     public function index()
     {
-        $this->render('login');
+        if(isset($_COOKIE['user']))
+        {
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/dashboard/");
+            $this->dashboard();   
+        }
+        else
+        {
+            $this->render('login');
+        }
     }
 
     public function dashboard()
@@ -29,6 +38,18 @@ class DefaultController extends AppController {
         else
         {
             $this->render('dashboard',['device' => 'desktop']);
+        }
+    }
+
+    public function products()
+    {
+        if($this->isMobileDev())
+        {
+            $this->render('productInformation',['device' => 'mobile']);
+        }
+        else
+        {
+            $this->render('productInformation',['device' => 'desktop']);
         }
     }
 }

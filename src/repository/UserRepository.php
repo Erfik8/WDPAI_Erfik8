@@ -21,11 +21,15 @@ class UserRepository extends Repository
         }
 
         return new User(
-            $user['id']
+            $user['id'],
             $user['email'],
             $user['password'],
             $user['name'],
-            $user['surname']
+            $user['surname'],
+            $user['id_user_type'],
+            $user['logo_link'],
+            $user['premium_ending_date'],
+            $user['id_city']
         );
     }
 }
