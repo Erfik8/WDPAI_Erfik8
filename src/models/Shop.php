@@ -1,4 +1,6 @@
 <?php 
+require_once __DIR__.'/Address.php';
+
 class Shop {
     private $id;
     private $name;
@@ -10,6 +12,7 @@ class Shop {
     private $vegetarian;
     private $lactoseFree;
     private $idCity;
+    public $addressObject;
 
     public function __construct(
         int $id,
@@ -20,8 +23,8 @@ class Shop {
         bool $glutenFree,
         bool $vegan,
         bool $vegetarian,
-        bool $lactoseFree,
-        ?int $idCity
+        bool $lactoseFree
+        
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -32,7 +35,7 @@ class Shop {
         $this->vegan = $vegan;
         $this->vegetarian = $vegetarian;
         $this->lactoseFree = $lactoseFree;
-        $this->idCity = $idCity;
+        $this->addressObject = null;
     }
 
     public function getId(): int
@@ -40,9 +43,19 @@ class Shop {
         return $this->id;
     }
 
-    public function getName(): string
+    public function getName(int $size = 0): string
     {
-        return $this->name;
+        if ($size == 0) return $this->name;
+        else
+        {
+            $ret_val = substr($this->name,0,$size);
+            if ($ret_val == $this->name)
+            {
+                return $ret_val;
+            }
+            $ret_val = $ret_val."...";
+            return $ret_val;
+        }
     }
 
     public function setName(string $name): void
@@ -128,6 +141,15 @@ class Shop {
     public function setIdCity(?int $idCity): void
     {
         $this->idCity = $idCity;
+    }
+    public function setAddressObject(?Address $obj): void 
+    {
+        $this->addressObject = $obj;
+    }
+
+    public function getAddressObject(): ?Address
+    {
+        return $this->addressObject;
     }
 }
 

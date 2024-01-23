@@ -14,6 +14,7 @@
     <?php include(__DIR__.'/../common/header-desktop.php'); ?>
     <main>
         <?php include(__DIR__.'/../common/add-product.php'); ?>
+        <?php include(__DIR__.'/../common/productDescription.php'); ?>
         <div class="vertical-line"></div>
         <?php include(__DIR__.'/../common/productSearch.php'); ?>
     </main>

@@ -1,24 +1,32 @@
 <?php
 
+require_once __DIR__.'/City.php';
+
 class Address {
     private $id;
     private $street;
     private $postalCode;
     private $accommodation;
-    private $city;
-
+    private $cityId;
+    public $cityObject;     
     public function __construct(
         int $id,
         string $street,
         string $postalCode,
         string $accommodation,
-        string $city
+        int $cityId
     ) {
         $this->id = $id;
         $this->street = $street;
         $this->postalCode = $postalCode;
         $this->accommodation = $accommodation;
-        $this->city = $city;
+        $this->cityId = $cityId;
+        $this->cityObject = null;
+    }
+
+    public function getAddress(): string
+    {
+        return $this->street." ".$this->accommodation.", ".$this->cityObject->getName()." ".$this->postalCode;
     }
 
     public function getId(): int
@@ -56,14 +64,23 @@ class Address {
         $this->accommodation = $accommodation;
     }
 
-    public function getCity(): string
+    public function getCity(): int
     {
         return $this->city;
     }
 
-    public function setCity(string $city): void
+    public function setCity(int $cityId): void
     {
-        $this->city = $city;
+        $this->cityId = $cityId;
+    }
+
+    public function getCityObject(): ?City
+    {
+        return $this->cityObject;
+    }
+    public function setCityObject(?City $cityObject): void 
+    {
+        $this->cityObject = $cityObject;
     }
 }
 

@@ -95,7 +95,8 @@ body main div.vertical-line{
     width: 6px;
     background-color: var(--main-yellow);
     height: 90%;
-    margin: 50px 0px;
+    position: relative;
+    top: 50px;
     box-sizing: content-box;
 }
 
@@ -178,7 +179,7 @@ body main div.title div.title-line-right {
 body section
 { 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
     height: calc(100% - 82px);
     padding: 0px 3% 12px 4%;
@@ -190,6 +191,16 @@ body section
     justify-content: space-between;
     align-items: center;
     letter-spacing: 3px;
+}
+body section img.product-image
+{
+    width: 150px;
+    padding: 30px 0px 0px 0px;
+}
+
+body section.disabled
+{
+    display: none;
 }
 body section form
 {
@@ -236,6 +247,7 @@ body section div.diet-group
     flex-grow: 1;
 }
 
+
 body section div.diet-group button {
     border: none;
     border-radius: 35px;
@@ -252,6 +264,37 @@ body section div.diet-group button {
 
   /* Style for the graphic inside the button */
   body section div.diet-group button img {
+    height: 35px;
+    max-width: 100%; /* Ensure the image does not exceed the button's boundaries */
+  }
+
+  body section div.diet-information
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+}
+
+body section div.diet-information button {
+    border: none;
+    border-radius: 35px;
+    background-color: #3498db; /* Change the background color as needed */
+    padding: 10px; /* Adjust padding as needed */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Hover effect for the button */
+  body section div.diet-information button:hover {
+    background-color: #2980b9; /* Change the hover background color as needed */
+  }
+
+  /* Style for the graphic inside the button */
+  body section div.diet-information button img {
     height: 35px;
     max-width: 100%; /* Ensure the image does not exceed the button's boundaries */
   }

@@ -1,4 +1,4 @@
-<section class="information-block">
+<section class="information-block disabled">
     <form action="add" class="add-product" method="POST">
         <h1>Dodaj produkt</h1>
 
