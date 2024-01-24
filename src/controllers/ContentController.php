@@ -80,6 +80,7 @@ class ContentController extends AppController {
             if($this->isGet())
             {
                 $phrase = '';
+                $main_product = null;
                 if(isset($_GET['phrase']))
                 {
                     $phrase = $_GET['phrase'];
@@ -94,8 +95,44 @@ class ContentController extends AppController {
                 {
                     $products = [];
                 }
+                if(isset($_GET['product_id']))
+                {
+                    $main_product = $this->productRepository->getProductById(intval($_GET['product_id']));
+                }
             }
-            $this->render('productInformation',['device' => 'desktop','products' => $products]);
+            $this->render('productInformation',['device' => 'desktop','products' => $products, 'main_product' => $main_product]);
+        }
+    }
+
+    public function getProducts()
+    {
+        if($this->isMobileDev())
+        {
+            //To Do
+        }
+        else
+        {
+            $products = [];
+            if($this->isGet())
+            {
+                $phrase = '';
+                if(isset($_GET['phrase']))
+                {
+                    $phrase = $_GET['phrase'];
+                }
+                $offset = 0;
+                if(isset($_GET['offset']))
+                {
+                    $offset = $_GET['offset'];
+                }
+                $products = $this->productRepository->getProductsByPhrase($phrase,$offset);
+                if($products == null)
+                {
+                    $products = [];
+                }
+
+            }
+            $this->render('common/productSearch',['products' => $products]);
         }
     }
 

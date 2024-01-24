@@ -1,9 +1,9 @@
 <div class="product-search">
     <div class="input">
-        <input type="text">
+        <input type="text" id="searchInput" onkeyup="checkEnter(event)">
         <img class="search-icon" <?php echo "src=".__IMAGES__."search.png"?> alt="search">
     </div>
-    <div class="products-list">
+    <div class="products-list" id="products-list">
         <?php foreach ($products as $product): ?>     
         <a <?php echo "href=/products?product_id=".$product->getId() ?>>
             <div class="product-element">

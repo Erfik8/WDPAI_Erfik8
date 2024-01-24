@@ -25,8 +25,8 @@
         <ul>Podziel się opinią z innymi użytkownikami </ul>
     </div>
     <div class="right-side">
-        <h4>Logowanie</h4>
-        <form class="login" action="login" method="POST">
+        <h4>Rejestracja</h4>
+        <form class="register" action="register" onsubmit="return validateRegistrationForm()" method="POST">
                     <?php
                         if(isset($messages)){
                             foreach($messages as $message) {
@@ -34,10 +34,19 @@
                             }
                         }
                     ?>
+            <input type="text" name="name" id="name" value="name">
+            <input type="text" name="surname" id="surname" value="surname">        
             <input type="email" name="email" id="emal"value="Login">
             <input type="password" name="password" id="password" value="Password">
-            <button type="submit" id="logowanie_zwykle">Zaloguj się</button>
-            <button type="button" id="Rejestracja" onclick="registerPage()">Zarejetruj się</button>
+            <input type="password" name="password2" id="password2" value="Confirm password">
+            <input list="Cities" name="city">
+                <datalist id="Cities">
+                    <?php foreach ($cities as $city): ?>
+                    <option value=<?php echo $city->getName()?>>
+                    <?php endforeach;?>
+                </datalist>
+            <button type="submit" id="rejestracja">Utwórz konto</button>
+            <button type="button" id="logowanie" onclick="loginPage()">Zaloguj</button>
         </form>
     </div>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
