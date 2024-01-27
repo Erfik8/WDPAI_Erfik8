@@ -7,6 +7,7 @@ footer {
     height: var(--footer-height);
     width: 100%;
     background-color: var(--main-yellow);
+    z-index: 1;
 }
 footer div
 {

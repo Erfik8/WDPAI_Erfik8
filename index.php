@@ -13,6 +13,7 @@ Router::get('filenotfound','ErrorController');
 Router::get('login','SecurityController');
 Router::get('logout','SecurityController');
 Router::get('products','ContentController');
+Router::get('shops','ContentController');
 Router::get('getProducts','ContentController');
 Router::get('register','SecurityController');
 Router::run($path);

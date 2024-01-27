@@ -5,13 +5,14 @@ class Shop {
     private $id;
     private $name;
     private $idAddress;
-    private $googleMapLink;
+    private $googleShareLink;
     private $logoLink;
+    private $photoLink;
     private $glutenFree;
     private $vegan;
     private $vegetarian;
     private $lactoseFree;
-    private $idCity;
+    private $googleEmbeddedLink;
     public $addressObject;
 
     public function __construct(
@@ -20,21 +21,24 @@ class Shop {
         int $idAddress,
         ?string $googleMapLink,
         ?string $logoLink,
+        string $photoLink,
         bool $glutenFree,
         bool $vegan,
         bool $vegetarian,
-        bool $lactoseFree
-        
+        bool $lactoseFree,
+        string $googleEmbeddedLink
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->idAddress = $idAddress;
         $this->googleMapLink = $googleMapLink;
         $this->logoLink = $logoLink;
+        $this->photoLink = $photoLink;
         $this->glutenFree = $glutenFree;
         $this->vegan = $vegan;
         $this->vegetarian = $vegetarian;
         $this->lactoseFree = $lactoseFree;
+        $this->googleEmbeddedLink = $googleEmbeddedLink;
         $this->addressObject = null;
     }
 
@@ -92,6 +96,14 @@ class Shop {
     {
         $this->logoLink = $logoLink;
     }
+    public function getPhotoLink(): string
+    {
+        return $this->photoLink;
+    }
+    public function setPhotoLink(string $photoLink): void
+    {
+        $this->photoLink = $photoLink;
+    }
 
     public function isGlutenFree(): bool
     {
@@ -133,15 +145,16 @@ class Shop {
         $this->lactoseFree = $lactoseFree;
     }
 
-    public function getIdCity(): ?int
+    public function setgoogleEmbeddedLink(string $googleEmbeddedLink): variant_mod
     {
-        return $this->idCity;
+        $this->googleEmbeddedLink = $googleEmbeddedLink;
     }
 
-    public function setIdCity(?int $idCity): void
+    public function getgoogleEmbeddedLink(): string
     {
-        $this->idCity = $idCity;
+        return $this->googleEmbeddedLink; 
     }
+
     public function setAddressObject(?Address $obj): void 
     {
         $this->addressObject = $obj;

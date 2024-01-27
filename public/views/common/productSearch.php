@@ -1,6 +1,6 @@
 <div class="product-search">
     <div class="input">
-        <input type="text" id="searchInput" onkeyup="checkEnter(event)">
+        <input type="text" id="searchProductInput" onkeyup="sendProductSearchRequest(event)">
         <img class="search-icon" <?php echo "src=".__IMAGES__."search.png"?> alt="search">
     </div>
     <div class="products-list" id="products-list">

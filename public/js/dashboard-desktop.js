@@ -1,13 +1,19 @@
-function checkEnter(event) {
+function sendProductSearchRequest(event) {
     if (event.key === 'Enter') {
-        sendSearchRequest();
+        var userInput = document.getElementById('searchProductInput').value;
+        // Construct the new URL
+        var newURL = 'http://localhost:8080/products?phrase=' + encodeURIComponent(userInput);
+        // Redirect to the new page
+        window.location.href = newURL;
     }
 }
 
-function sendSearchRequest() {
-    var userInput = document.getElementById('searchInput').value;
-    // Construct the new URL
-    var newURL = 'http://localhost:8080/products?phrase=' + encodeURIComponent(userInput);
-    // Redirect to the new page
-    window.location.href = newURL;
+function sendShopSearchRequest(event) {
+    if (event.key === 'Enter') {
+        var userInput = document.getElementById('searchShopInput').value;
+        // Construct the new URL
+        var newURL = 'http://localhost:8080/shops?phrase=' + encodeURIComponent(userInput);
+        // Redirect to the new page
+        window.location.href = newURL;
+    }
 }

@@ -1,4 +1,4 @@
-<section class="information-block <?php echo is_null($main_product)  ? "" : 'disabled'?>">
+<section class="information-block <?php echo is_null($main_product)  ? "" : 'disabled'?>" id="product-add">
     <form action="add" class="add-product" method="POST">
         <h1>Dodaj produkt</h1>
 

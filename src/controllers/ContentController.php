@@ -70,48 +70,97 @@ class ContentController extends AppController {
     
     public function products()
     {
+        $products = [];
+        $phrase = '';
+        $main_product = null;
+        if($this->isGet())
+        {
+            if(isset($_GET['phrase']))
+            {
+                $phrase = $_GET['phrase'];
+            }
+            $offset = 0;
+            if(isset($_GET['offset']))
+            {
+                $offset = $_GET['offset'];
+            }
+            $products = $this->productRepository->getProductsByPhrase($phrase,$offset);
+            if($products == null)
+            {
+                $products = [];
+            }
+            if(isset($_GET['product_id']))
+            {
+                $main_product = $this->productRepository->getProductById(intval($_GET['product_id']));
+            }
+        }
         if($this->isMobileDev())
         {
-            $this->render('productInformation',['device' => 'mobile']);
+            if(isset($_GET['product_id']))
+            {
+                $this->render('productDetails',['device' => 'mobile','main_product' => $main_product]);
+            }
+            else 
+            {
+                $this->render('productInformation',['device' => 'mobile','products' => $products]);
+            }
         }
         else
         {
-            $products = [];
-            if($this->isGet())
-            {
-                $phrase = '';
-                $main_product = null;
-                if(isset($_GET['phrase']))
-                {
-                    $phrase = $_GET['phrase'];
-                }
-                $offset = 0;
-                if(isset($_GET['offset']))
-                {
-                    $offset = $_GET['offset'];
-                }
-                $products = $this->productRepository->getProductsByPhrase($phrase,$offset);
-                if($products == null)
-                {
-                    $products = [];
-                }
-                if(isset($_GET['product_id']))
-                {
-                    $main_product = $this->productRepository->getProductById(intval($_GET['product_id']));
-                }
-            }
+
             $this->render('productInformation',['device' => 'desktop','products' => $products, 'main_product' => $main_product]);
+        }
+    }
+
+    public function shops()
+    {
+        $shops = [];
+        $phrase = '';
+        $main_shop = null;
+        if($this->isGet())
+        {
+            if(isset($_GET['phrase']))
+            {
+                $phrase = $_GET['phrase'];
+            }
+            $offset = 0;
+            if(isset($_GET['offset']))
+            {
+                $offset = $_GET['offset'];
+            }
+            $shops = $this->shopRepository->getShopsByPhrase($phrase,$offset);
+            if($shops == null)
+            {
+                $shops = [];
+            }
+            if(isset($_GET['shop_id']))
+            {
+                $main_shop = $this->shopRepository->getShopById(intval($_GET['shop_id']));
+            }
+            else
+            {
+                $main_shop = $shops[0];
+            }
+        }
+        if($this->isMobileDev())
+        {
+            if(isset($_GET['shop_id']))
+            {
+                $this->render('shopDetails',['device' => 'mobile','main_shop' => $main_shop]);
+            }
+            else 
+            {
+                $this->render('shopInformation',['device' => 'mobile','shops' => $shops]);
+            }
+        }
+        else
+        {
+            $this->render('shopInformation',['device' => 'desktop','shops' => $shops, 'main_shop' => $main_shop]);
         }
     }
 
     public function getProducts()
     {
-        if($this->isMobileDev())
-        {
-            //To Do
-        }
-        else
-        {
             $products = [];
             if($this->isGet())
             {
@@ -133,21 +182,7 @@ class ContentController extends AppController {
 
             }
             $this->render('common/productSearch',['products' => $products]);
-        }
     }
-
-    public function shops()
-    {
-        if($this->isMobileDev())
-        {
-            $this->render('shopInformation',['device' => 'mobile']);
-        }
-        else
-        {
-            $this->render('shopInformation',['device' => 'desktop']);
-        }
-    }
-
 
     private function isMobileDev(){
         if(!empty($_SERVER['HTTP_USER_AGENT'])){

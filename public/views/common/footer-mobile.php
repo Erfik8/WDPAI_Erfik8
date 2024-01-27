@@ -16,7 +16,7 @@
     </div>
 
     <div class="icon-element">
-        <a href="/restaurants"><img src="/public/images/restaurant.png" alt="notification"></a>
+        <a href="/shops"><img src="/public/images/restaurant.png" alt="notification"></a>
         <p>Restauracje</p>
     </div>
     <div class="icon-element">

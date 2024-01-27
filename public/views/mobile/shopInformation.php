@@ -15,7 +15,7 @@
 <body>
 <?php include(__DIR__.'/../common/header-mobile.php'); ?>
     <main>
-        <?php include(__DIR__.'/../common/productSearch.php'); ?>   
+        <?php include(__DIR__.'/../common/shopSearch.php'); ?>   
     </main>
     <?php include(__DIR__.'/../common/footer-mobile.php'); ?>   
 </body>
