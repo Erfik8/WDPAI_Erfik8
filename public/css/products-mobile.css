@@ -9,6 +9,12 @@
     --text-section-color: #2A0D58;
 }
 
+a, a:hover, a:active, a:visited
+{
+    color: var(--text-dark-color);
+    text-decoration: none;
+}
+
 body {
     margin: 0px;
     background-color: var(--main-background);
@@ -239,10 +245,29 @@ body section div.diet-group
 body section div.diet-group button {
     border: none;
     border-radius: 35px;
-    background-color: #3498db; /* Change the background color as needed */
-    padding: 10px; /* Adjust padding as needed */
+    padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+  }
+  body section div.diet-group button input 
+  {
+    display: none;
+  }
+  body section div.diet-group button.False
+  {
+    background-color: white;
+  }
+  body section div.diet-group button.False:hover
+  {
+    background-color: grey;
+  }
+  body section div.diet-group button.True
+  {
+    background-color: green;
+  }
+  body section div.diet-group button.True:hover
+  {
+    background-color: darkgreen;
   }
 
   /* Hover effect for the button */

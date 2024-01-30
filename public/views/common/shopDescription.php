@@ -1,4 +1,4 @@
-<section class="information-block <?php echo is_null($main_shop) ? 'disabled' :"" ?>" id="product-description">
+<section class="information-block <?php echo is_null($main_shop) ? 'disabled' :"" ?>" id="shop-description">
     <div class="shop-details">
         <img src="<?php echo is_null($main_shop) ? '' :$main_shop->getLogoLink();?>" alt="">
         <div clas="title">

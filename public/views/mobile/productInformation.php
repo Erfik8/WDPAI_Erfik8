@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Web Page</title>
     <link rel="stylesheet" href="/public/css/dashboard-mobile.css"> <!-- You can link to an external CSS file here -->
+    <link rel="stylesheet" href="/public/css/products-mobile.css">
     <link rel="stylesheet" href="/public/css/footer-mobile.css">
     <link rel="stylesheet" href="/public/css/search-list.css">
     <script defer src="/public/js/products-mobile.js"></script>
@@ -16,7 +17,9 @@
 <?php include(__DIR__.'/../common/header-mobile.php'); ?>
     <main>
         <?php include(__DIR__.'/../common/productSearch.php'); ?>   
+        <?php include(__DIR__.'/../common/product_add_button.php'); ?> 
     </main>
-    <?php include(__DIR__.'/../common/footer-mobile.php'); ?>   
+    <?php include(__DIR__.'/../common/footer-mobile.php'); ?>
+      
 </body>
 </html>

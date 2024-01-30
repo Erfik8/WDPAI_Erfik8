@@ -39,9 +39,14 @@ class ProductRepository extends Repository
         }
 
         $product = $this->getProductFromFetch($product);
-        return $product;
-
-        
+        if($product == -1)
+        {
+            return -1;
+        }
+        else
+        {
+            return $product;
+        }
     }
     public function getProductsByPhrase(string $phrase = "", int $offset = 0): ?array
     {
@@ -100,6 +105,33 @@ class ProductRepository extends Repository
 
         return $row_num;
     }
+    public function createProduct($name,$idCategory,$glutenFree,$vegan,$vegetarian,$lactoseFree,$description,$logoLink,$idCompany): void 
+    {
+        $stmt = $this->database->connect()->prepare('
+        INSERT INTO public."Products"(
+        name, 
+        id_category, 
+        gluten_free, 
+        vegan, 
+        vegetarian, 
+        lactose_free, 
+        description, 
+        logo_link, 
+        id_company)
+            VALUES (:name, :id_category, :gluten_free, :vegan, :vegetarian, :lactose_free, :description, :logo_link, :id_company);
+        ');
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':id_category', $idCategory, PDO::PARAM_INT);
+        $stmt->bindParam(':gluten_free', $glutenFree, PDO::PARAM_STR);
+        $stmt->bindParam(':vegan', $vegan, PDO::PARAM_STR);
+        $stmt->bindParam(':vegetarian', $vegetarian, PDO::PARAM_STR);
+        $stmt->bindParam(':lactose_free', $lactoseFree, PDO::PARAM_STR);
+        $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+        $stmt->bindParam(':logo_link', $logoLink, PDO::PARAM_STR);
+        $stmt->bindParam(':id_company', $idCompany, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
     private function getProductFromFetch($result): Product 
     {
 

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/public/css/products-mobile.css">
     <link rel="stylesheet" href="/public/css/footer-mobile.css">
     <link rel="stylesheet" href="/public/css/search-list.css">
+    <script defer src="/public/js/products-mobile.js"></script>
     <style>
         /* You can also include inline styles here */
     </style>
@@ -15,14 +16,8 @@
 <body>
 <?php include(__DIR__.'/../common/header-mobile.php'); ?>
     <main>
-        <?php include(__DIR__.'/../common/productDescription.php'); ?>   
-        <?php include(__DIR__.'/../common/product_add_button.php'); ?>   
+        <?php include(__DIR__.'/../common/add-product.php'); ?>   
     </main>
     <?php include(__DIR__.'/../common/footer-mobile.php'); ?>
-    <script type="text/javascript">
-        function showAddForm(){
-            window.location.href = 'http://localhost:8080/addProduct';
-        }
-    </script>
 </body>
 </html>

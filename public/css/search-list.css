@@ -111,7 +111,7 @@ div.shop-search div.shops-list div.shop-element{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    height: 80px;
+    min-height: 80px;
     padding: 5px;
     margin: 10px;
     background-color: var(--main-element-background);
@@ -121,6 +121,7 @@ div.shop-search div.shops-list div.shop-element{
 div.shop-search div.shops-list div.shop-element img.shop-images{
     object-fit: contain;
     height: 100%;
+    max-height: 100px;
     margin: auto;
 }
 div.shop-search div.shops-list div.shop-element div.description{
@@ -153,5 +154,4 @@ img.deactive
 img.active
 {
     display: initial;
-
 }

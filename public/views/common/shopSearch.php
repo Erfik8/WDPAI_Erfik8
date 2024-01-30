@@ -1,9 +1,9 @@
 <div class="shop-search">
     <div class="input">
-        <input type="text" id="searchShopsInput" onkeyup="sendShopSearchRequest(event)">
+        <input type="text" id="searchShopInput" onkeyup="sendShopSearchRequest(event)">
         <img class="search-icon" <?php echo "src=".__IMAGES__."search.png"?> alt="search">
     </div>
-    <div class="shops-list">
+    <div class="shops-list" id="shops-list">
     <?php foreach ($shops as $shop): ?>
         <a href="/shops?shop_id=<?php echo $shop->getId()?>?>">
             <div class="shop-element">

@@ -7,10 +7,10 @@
         <?php foreach ($products as $product): ?>     
         <a <?php echo "href=/products?product_id=".$product->getId() ?>>
             <div class="product-element">
-                <img class="product-images" <?php echo "src=".__IMAGES__."sloik.png"?> alt="produkt">
+                <img class="product-images" src="<?php echo $product->getLogoLink();?>" alt="produkt">
                 <div class="description">
                     <h3><?php echo $product->getName(17)?></h3>
-                    <p>Firma: łowicz</p>
+                    <p><?php echo $product->companyObject->getName()?></p>
                 </div>
             </div>
         </a>

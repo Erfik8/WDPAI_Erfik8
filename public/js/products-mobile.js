@@ -70,4 +70,8 @@ function setupAsyncRequests()
          }
 }
 
+function showAddForm(){
+    window.location.href = 'http://localhost:8080/addProduct';
+}
+
 setupAsyncRequests()

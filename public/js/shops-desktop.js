@@ -1,7 +1,7 @@
 function sendProductSearchRequest(event) {
     if (event.key === 'Enter')
     {
-        var userInput = document.getElementById('searchProductInput').value;
+        var userInput = document.getElementById('searchShopInput').value;
         var url = 'http://localhost:8080/getProducts?phrase=' + encodeURIComponent(userInput);
     
         // You can use fetch API to send the GET request
@@ -20,7 +20,7 @@ function sendProductSearchRequest(event) {
                 // Handle the response data as needed
                 console.log(doc);
     
-                document.getElementById('products-list').innerHTML = doc.getElementById('products-list').innerHTML;
+                document.getElementById('shops-list').innerHTML = doc.getElementById('shops-list').innerHTML;
     
                 setupAsyncRequests()
             })
@@ -49,15 +49,7 @@ function sendGetProductRequest(destinationURI) {
             // Handle the response data as needed
             console.log(doc);
 
-            document.getElementById('product-description').innerHTML = doc.getElementById('product-description').innerHTML;
-            if(document.getElementById('product-description').classList.contains('disabled'))
-            {
-                document.getElementById('product-description').classList.remove('disabled');
-            }
-            if(!document.getElementById('product-add').classList.contains('disabled'))   
-            {
-                document.getElementById('product-add').classList.add('disabled');
-            }
+            document.getElementById('shop-description').innerHTML = doc.getElementById('shop-description').innerHTML;
 
         })
         .catch(error => {
@@ -67,7 +59,7 @@ function sendGetProductRequest(destinationURI) {
 
 function setupAsyncRequests()
 {
-    var products_list = document.getElementById("products-list");
+    var products_list = document.getElementById("shops-list");
     var productLinks = products_list.getElementsByTagName('a');
          for (var i = 0; i < productLinks.length; i++) {
              productLinks[i].addEventListener('click', function(event) {
@@ -76,17 +68,6 @@ function setupAsyncRequests()
                  sendGetProductRequest(productId)
              });
          }
-}
-
-function showAddForm(){
-    if(!document.getElementById('product-description').classList.contains('disabled'))
-    {
-        document.getElementById('product-description').classList.add('disabled');
-    }
-    if(document.getElementById('product-add').classList.contains('disabled'))   
-    {
-        document.getElementById('product-add').classList.remove('disabled');
-    }
 }
 
 setupAsyncRequests()

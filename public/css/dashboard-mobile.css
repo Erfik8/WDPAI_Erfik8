@@ -8,6 +8,12 @@
     --text-dark-color: black;
 }
 
+a, a:hover, a:active, a:visited
+{
+    color: var(--text-dark-color);
+    text-decoration: none;
+}
+
 body {
     margin: 0px;
     background-color: var(--main-background);
@@ -148,4 +154,73 @@ body main div.title h3 {
 body main div.title div.title-line-right {
     height: 5px;
     background-color: var(--main-yellow);
+}
+
+body main div.form-button 
+{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 100px;
+  right: 40px;
+  border-radius: 35px;
+  background-color: var(--main-yellow);
+  padding: 5px;
+}
+body main div.form-button input 
+{
+  display: none;
+}
+body main div.form-button:hover{
+  cursor: pointer;
+}
+
+body main div.form-button img 
+{
+  width: 60px;
+  height: 60px;
+  filter: opacity(50%);
+}
+
+body div.messagebox
+{
+  position: fixed;
+  top: 150px;
+  right: calc(50% - 20vw);
+  width: 40vw;
+  height: 30vh;
+  border-radius: 20px;
+  background-color: var(--main-background);
+  border: var(--main-yellow) solid 6px;
+  color: white;
+  z-index: 2;
+}
+body div.messagebox h3
+{
+  margin-top: 30px;
+  display: block;
+  text-align: center;
+}
+body div.messagebox div.messageCancel
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+body div.messagebox div.messageCancel:hover 
+{
+  cursor: pointer;
+}
+body div.messagebox div.messageCancel img
+{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: invert(100%);
 }

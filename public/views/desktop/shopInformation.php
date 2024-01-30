@@ -6,7 +6,8 @@
     <title>My Web Page</title>
     <link rel="stylesheet" href="/public/css/shops-desktop.css"> <!-- You can link to an external CSS file here -->
     <link rel="stylesheet" href="/public/css/search-list.css">
-    <script defer src="/public/js/products-desktop.js"></script>
+    <link rel="stylesheet" href="/public/css/header-desktop.css">
+    <script defer src="/public/js/shops-desktop.js"></script>
     <style>
         /* You can also include inline styles here */
     </style>

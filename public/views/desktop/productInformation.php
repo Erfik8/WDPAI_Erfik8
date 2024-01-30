@@ -6,6 +6,7 @@
     <title>My Web Page</title>
     <link rel="stylesheet" href="/public/css/products-desktop.css"> <!-- You can link to an external CSS file here -->
     <link rel="stylesheet" href="/public/css/search-list.css">
+    <link rel="stylesheet" href="/public/css/header-desktop.css">
     <script defer src="/public/js/products-desktop.js"></script>
     <style>
         /* You can also include inline styles here */
@@ -18,6 +19,7 @@
         <?php include(__DIR__.'/../common/productDescription.php'); ?>
         <div class="vertical-line"></div>
         <?php include(__DIR__.'/../common/productSearch.php'); ?>
+        <?php include(__DIR__.'/../common/product_add_button.php'); ?>
     </main>
 </body>
 </html>
