@@ -1,11 +1,11 @@
 <?php date_default_timezone_set('UTC');?>
 <section class="user-settings">
-    <form action="userSettings">
+    <form action="userSettings" method="POST">
         <div class="user-information">
             <div class="user-photo">
                 <img id="logo-image" <?php echo "src=".$user->getLogoLink();?> alt="logo" >
                 <label for="logo-input">Edytuj zdjęcie</label>
-                <input id="logo-input" type="file" id="logo" name="logo" accept="image/png, image/jpeg" />
+                <input id="logo-input" type="file" name="logo" accept="image/png, image/jpeg" />
             </div>
             <div class="user-description">
                 <label for="name"> Imie: </label>
@@ -15,7 +15,7 @@
                 <label for="email"> email</label>
                 <input type="text" name="email" id="email" value=<?php echo $user->getEmail();?>>
                 <label for="city">Miasto: </label>
-                <input list="Cities" name="city" id="city" <?php echo "value=".$user->cityObject->getName();?>>
+                <input list="Cities" name="city" id="city" <?php echo "value='".$user->cityObject->getName()."'"; if ($user->userTypeObject->getName() != "premium") echo "disabled" ?>>
                     <datalist id="Cities">
                         <?php foreach ($cities as $city): ?>
                         <option value=<?php echo $city->getName()?>>
@@ -34,8 +34,7 @@
                 <button type="button">AKTYWUJ PREMIUM</button>
             <?php }
         ?>
-         <button type="button" class="remove_account" onclick="alert('remove!')">Usuń konto</button>
-         <button type="button" class="logout" onclick="window.location = '../logout'">Zapisz zmiany</button>
+         <button type="submit" class="save" >Zapisz zmiany</button>
 
     </form>
 

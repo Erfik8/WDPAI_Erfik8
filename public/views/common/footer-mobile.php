@@ -9,7 +9,7 @@
         <p>Szukaj Produktów</p>
     </div>
     <div class="user-element" id="user-element">
-        <a href="#"><img src="/public/images/profile.png" alt="profile" onclick="showMenu()"></a>
+        <a href="#"><img <?php echo "src=".$user->getLogoLink();?> alt="profile" onclick="showMenu()"></a>
         <div class="level-bar">
             <div class="level-filler"></div>
         </div>

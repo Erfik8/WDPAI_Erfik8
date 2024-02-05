@@ -2,6 +2,7 @@
 
 require_once 'AppController.php';
 require_once __DIR__.'/../repository/ProductRepository.php';
+require_once __DIR__.'/../repository/UserRepository.php';
 require_once __DIR__.'/../repository/ShopRepository.php';
 require_once __DIR__.'/../repository/CompanyRepository.php';
 require_once __DIR__.'/../repository/CategoryRepository.php';
@@ -14,6 +15,7 @@ class ContentController extends AppController {
     private $shopRepository;
     private $companyRepository;
     private $categoryRepository;
+    private $userRepository;
     const MAX_FILE_SIZE = 1024 * 1024;
     const SUPPORTED_TYPES = ['image/png', 'image/jpeg'];
     const PRODUCT_LOGO_DIRECTORY = '/public/images/products/';
@@ -25,13 +27,19 @@ class ContentController extends AppController {
         $this->shopRepository = new ShopRepository();
         $this->companyRepository = new CompanyRepository();
         $this->categoryRepository = new CategoryRepository();
+        $this->userRepository = new UserRepository();
     }
     
     public function dashboard()
     {
+        $user = null;
+        if(isset($_COOKIE['user']))
+        {
+            $user = $this->userRepository->getUserById($_COOKIE['user']);
+        }
         if($this->isMobileDev())
         {
-            $this->render('dashboard',['device' => 'mobile']);
+            $this->render('dashboard',['device' => 'mobile', 'user' => $user]);
         }
         else
         {
@@ -57,10 +65,10 @@ class ContentController extends AppController {
             $shops = [];
             if($this->isGet())
             {
-                $city_id = 1;
-                if(isset($_GET['city_id']))
+                $city_id = -1;
+                if(isset($_COOKIE['user']))
                 {
-                    $city_id = $_GET['city_id'];
+                    $city_id = $user->getIdCity();
                 }
                 $offset = 0;
                 if(isset($_GET['offset']))
@@ -73,7 +81,7 @@ class ContentController extends AppController {
                     $products = [];
                 }
             }
-            $this->render('dashboard',['device' => 'desktop', 'products' => $products, 'shops' => $shops]);
+            $this->render('dashboard',['device' => 'desktop', 'products' => $products, 'shops' => $shops, 'user' => $user]);
         }
     }
     
@@ -82,6 +90,11 @@ class ContentController extends AppController {
         $products = [];
         $phrase = '';
         $main_product = null;
+        $user = null;
+        if(isset($_COOKIE['user']))
+        {
+            $user = $this->userRepository->getUserById($_COOKIE['user']);
+        }
         if($this->isGet())
         {
             if(isset($_GET['phrase']))
@@ -111,18 +124,18 @@ class ContentController extends AppController {
         {
             if(isset($_GET['product_id']))
             {
-                $this->render('productDetails',['device' => 'mobile','main_product' => $main_product, 'message' => $message]);
+                $this->render('productDetails',['device' => 'mobile','main_product' => $main_product, 'message' => $message, 'user' => $user]);
             }
             else 
             {
-                $this->render('productInformation',['device' => 'mobile','products' => $products , 'message' => $message]);
+                $this->render('productInformation',['device' => 'mobile','products' => $products , 'message' => $message, 'user' => $user]);
             }
         }
         else
         {
             $companyList = $this->companyRepository->getCompanies();
             $categoryList = $this->categoryRepository->getCategories();
-            $this->render('productInformation',['device' => 'desktop','products' => $products, 'main_product' => $main_product,'companyList' => $companyList, 'categoryList' => $categoryList, 'message' => $message]);
+            $this->render('productInformation',['device' => 'desktop','products' => $products, 'main_product' => $main_product,'companyList' => $companyList, 'categoryList' => $categoryList, 'message' => $message, 'user' => $user]);
         }
     }
 
@@ -198,6 +211,11 @@ class ContentController extends AppController {
         $shops = [];
         $phrase = '';
         $main_shop = null;
+        $user = null;
+        if(isset($_COOKIE['user']))
+        {
+            $user = $this->userRepository->getUserById($_COOKIE['user']);
+        }
         if($this->isGet())
         {
             if(isset($_GET['phrase']))
@@ -209,7 +227,13 @@ class ContentController extends AppController {
             {
                 $offset = $_GET['offset'];
             }
-            $shops = $this->shopRepository->getShopsByPhrase($phrase,$offset);
+            $city_id = -1;
+            if(isset($_COOKIE['user']))
+            {
+                $user = $this->userRepository->getUserById($_COOKIE['user']);
+                $city_id = $user->getIdCity();
+            }
+            $shops = $this->shopRepository->getShopsByPhrase($phrase,$offset,$city_id);
             if($shops == null)
             {
                 $shops = [];
@@ -227,16 +251,16 @@ class ContentController extends AppController {
         {
             if(isset($_GET['shop_id']))
             {
-                $this->render('shopDetails',['device' => 'mobile','main_shop' => $main_shop]);
+                $this->render('shopDetails',['device' => 'mobile','main_shop' => $main_shop, 'user' => $user]);
             }
             else 
             {
-                $this->render('shopInformation',['device' => 'mobile','shops' => $shops]);
+                $this->render('shopInformation',['device' => 'mobile','shops' => $shops, 'user' => $user]);
             }
         }
         else
         {
-            $this->render('shopInformation',['device' => 'desktop','shops' => $shops, 'main_shop' => $main_shop]);
+            $this->render('shopInformation',['device' => 'desktop','shops' => $shops, 'main_shop' => $main_shop, 'user' => $user]);
         }
     }
 
@@ -265,17 +289,4 @@ class ContentController extends AppController {
             $this->render('common/productSearch',['products' => $products]);
     }
 
-    private function validate(array $file): bool
-    {
-        if ($file['size'] > self::MAX_FILE_SIZE) {
-            $this->message[] = 'File is too large for destination file system.';
-            return false;
-        }
-
-        if (!isset($file['type']) || !in_array($file['type'], self::SUPPORTED_TYPES)) {
-            $this->message[] = 'File type is not supported.';
-            return false;
-        }
-        return true;
-    }
 }

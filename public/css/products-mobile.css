@@ -196,6 +196,16 @@ body section.disabled
 {
     display: none;
 }
+body section div.shop-details
+{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+}
+
 body section form
 {
     display: flex;

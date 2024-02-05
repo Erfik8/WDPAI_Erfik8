@@ -31,7 +31,7 @@ class SecurityController extends AppController {
             }
     
             if (password_verify($password, $user->getPassword())){
-                return $this->render('login', ['messages' => ['Wrong password!'.$password." - ".$user->getPassword()]]);
+                return $this->render('login', ['messages' => ['Wrong password!']]);
             }
     
             $cookie_name = 'user';

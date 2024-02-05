@@ -1,7 +1,7 @@
 <section id="profile_basic_view" class="profile_basic_view"  onclick="hideMenu()" style="width: 0vw; height:0vh;">
     <div class="profile_view_box" onclick="event.stopPropagation()">
-        <img <?php echo "src=".__IMAGES__."profile.png";?> alt="">
-        <h1>Jakub Kubica</h1>
+        <img <?php echo "src=".$user->getLogoLink();?> alt="">
+        <h1><?php echo $user->getName().' '.$user->getSurname();?></h1>
         <div id="levelBar">
             <div id="level_bar" class="outer_level_bar">
                 <span class>Level: <?php echo " 12"?></span>

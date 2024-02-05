@@ -30,25 +30,73 @@ class AccountController extends AppController {
         {
             if($this->isPost())
             {
+                $userRepository = new UserRepository();
+                $cityRepository = new CityRepository();
 
+                //cointainer with actual user
+
+                $actualUser = $this->userRepository->getUserById($_COOKIE['user']);
+
+                //data from post
+        
+                $name = $_POST['name'];
+                $surname = $_POST['surname'];
+                $email = $_POST['email'];
+                $cityName = $_POST['city'];
+                $logoLink = $actualUser->getLogoLink();
+                if(is_uploaded_file($_FILES['logo']['tmp_name']) && $this->validate($_FILES['logo']))
+                {
+                    move_uploaded_file(
+                        $_FILES['logo']['tmp_name'],
+                        dirname(__DIR__) . '/../'. self::PRODUCT_LOGO_DIRECTORY . $_FILES['logo']['name']
+                    );
+                    unlink(dirname(__DIR__) . '/../'.$actualUser->getLogoLink());
+                    $logoLink = self::PRODUCT_LOGO_DIRECTORY . $_FILES['logo']['name'];
+                }
+
+                $cityId = $actualUser->getIdCity();
+                if($cityName != null)
+                {
+                    $cityId = $cityRepository->getCityIdByName($cityName);
+                }
+
+                if($actualUser->getName() != $name)
+                {
+                    $actualUser->setName($name);
+                }
+                if($actualUser->getSurname() != $surname)
+                {
+                    $actualUser->setSurname($surname);
+                }
+                if($actualUser->getEmail() != $email)
+                {
+                    $actualUser->setEmail($email);
+                }
+                if($cityId != null && $actualUser->getIdCity() != $cityId)
+                {
+                    $actualUser->setIdCity($cityId);
+                }
+                if($actualUser->getLogoLink() != $logoLink)
+                {
+                    $actualUser->setLogoLink($logoLink);
+                }
+                $userRepository->updateUser($actualUser);
+    
+            }
+            $user = $this->userRepository->getUserById($_COOKIE['user']);
+            //var_dump($user);
+            $userType = $this->userTypeRepository->getUserTypeById($user->getIdUserType());
+            $cities = $this->cityRepository->getCities();
+            $userCity = $this->cityRepository->getCityById($user->getIdCity());
+            $user->setCityObject($userCity);
+            $user->setUserTypeObject($userType);
+            if ($this->isMobileDev())
+            {
+                return $this->render('userSettings',['device' => 'mobile', 'user' => $user, "cities" => $cities]);
             }
             else 
             {
-                $user = $this->userRepository->getUserById($_COOKIE['user']);
-                //var_dump($user);
-                $userType = $this->userTypeRepository->getUserTypeById($user->getIdUserType());
-                $cities = $this->cityRepository->getCities();
-                $userCity = $this->cityRepository->getCityById($user->getIdCity());
-                $user->setCityObject($userCity);
-                $user->setUserTypeObject($userType);
-                if ($this->isMobileDev())
-                {
-                    return $this->render('userSettings',['device' => 'mobile', 'user' => $user, "cities" => $cities]);
-                }
-                else 
-                {
-                    return $this->render('userSettings',['device' => 'desktop', 'user' => $user, "cities" => $cities]);
-                }
+                return $this->render('userSettings',['device' => 'desktop', 'user' => $user, "cities" => $cities]);
             }
         }
         else
@@ -59,24 +107,7 @@ class AccountController extends AppController {
 
         return $this->render('login');
     }
-    
-    public function products($message = '')
-    {
-
-    }
 
 
-    private function validate(array $file): bool
-    {
-        if ($file['size'] > self::MAX_FILE_SIZE) {
-            $this->message[] = 'File is too large for destination file system.';
-            return false;
-        }
 
-        if (!isset($file['type']) || !in_array($file['type'], self::SUPPORTED_TYPES)) {
-            $this->message[] = 'File type is not supported.';
-            return false;
-        }
-        return true;
-    }
 }

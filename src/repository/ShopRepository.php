@@ -73,7 +73,7 @@ class ShopRepository extends Repository
         
         if ($city_id != -1)
         {
-            $query_str .= ' and where public."City".id = :id';
+            $query_str .= ' and public."City".id = :id';
         }
         $query_str .= ' limit 10 offset :offset;';
 

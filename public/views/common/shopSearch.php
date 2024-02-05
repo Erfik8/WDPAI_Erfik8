@@ -7,7 +7,7 @@
     <?php foreach ($shops as $shop): ?>
         <a href="/shops?shop_id=<?php echo $shop->getId()?>?>">
             <div class="shop-element">
-                <img class="shop-images" <?php echo "src=".__IMAGES__."sloik.png"?> alt="produkt">
+                <img class="shop-images" <?php echo "src=".$shop->getLogoLink();?> alt="produkt">
                 <div class="description">
                     <h3><?php echo $shop->getName(20)?></h3>
                     <p><?php echo $shop->addressObject->getAddress()?></p>

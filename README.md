@@ -1,5 +1,12 @@
 # GlutenOff
-some description of project
+Gluten off is an web application that will help you find products and foods with respect to alergens, that you wouldn,t like to eat. 
+Features of application:
+ - filtering food by name
+ - description view of every product in our database
+ - abillity to add products to database (only for premium users)
+ - abillity to add products to custom list (avaliable soon)
+ - user settings
+ - desktop and mobile device compatibility
 
 ## Table of Contents
 - [GlutenOff](#glutenoff)
@@ -11,16 +18,13 @@ some description of project
   - [Database Management](#database-management)
     - [Accessing the Database with pgAdmin](#accessing-the-database-with-pgadmin)
     - [Importing Database from File](#importing-database-from-file)
-  - [FAQ](#faq)
-    - [Q: Frequently Asked Question 1?](#q-frequently-asked-question-1)
-    - [Q: Frequently Asked Question 2?](#q-frequently-asked-question-2)
   - [Maintainers](#maintainers)
 
 ## Requirements
 Ensure your system meets the following requirements before setting up the project:
 - Docker installed
 - Web browser with HTML5 and JavaScript support
-- PHP version 7.0 or higher
+- PHP version 8.0 or higher
 - PostgreSQL database
 
 ## Recommended Modules
@@ -63,14 +67,6 @@ Adjust the configuration settings as needed:
 3. Select the format of your backup file (e.g., plain SQL).
 4. Browse and select your database backup file.
 5. Click "Restore" to import the database.
-
-
-## FAQ
-### Q: Frequently Asked Question 1?
-A: Answer to the question.
-
-### Q: Frequently Asked Question 2?
-A: Answer to the question.
 
 ## Maintainers
 - [Erfik8](https://github.com/Erfik8)

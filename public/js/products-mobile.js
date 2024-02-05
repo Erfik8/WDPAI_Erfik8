@@ -65,7 +65,7 @@ function setupAsyncRequests()
              productLinks[i].addEventListener('click', function(event) {
                  event.preventDefault();
                  var productId = this.getAttribute('href');
-                 sendGetProductRequest(productId)
+                 sendGetShopRequest(productId)
              });
          }
 }
@@ -74,4 +74,3 @@ function showAddForm(){
     window.location.href = 'http://localhost:8080/addProduct';
 }
 
-setupAsyncRequests()

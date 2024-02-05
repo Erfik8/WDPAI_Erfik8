@@ -69,7 +69,6 @@ body section.information-block
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: calc(100% - 82px);
     padding: 12px 3% 12px 4%;
     margin: 82px 4% 0 0;
     background-color: white;
@@ -117,12 +116,14 @@ body section.information-block div.photos
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
+    height: 200px;
 }
 body section.information-block div.photos img 
 {
     min-width: 200px;
     width: 50%;
     object-fit:contain;
+    height: 100%;
 }
 
 body section.information-block img.product-image

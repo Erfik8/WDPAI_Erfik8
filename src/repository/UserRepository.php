@@ -75,4 +75,21 @@ class UserRepository extends Repository
             $stmt->bindParam(':idCity', $idCity, PDO::PARAM_INT);
             $stmt->execute();
     }
+
+    public function updateUser(User $user): void 
+    {
+        $stmt = $this->database->connect()->prepare('
+        UPDATE public."Users"
+        SET email=:email, name=:name, surname=:surname, logo_link=:logo_link, id_city=:id_city
+        WHERE id = :id;
+        ');
+        $stmt->bindParam(':email', $user->getEmail(), PDO::PARAM_STR);
+        $stmt->bindParam(':name', $user->getName(), PDO::PARAM_STR);
+        $stmt->bindParam(':surname', $user->getSurname(), PDO::PARAM_STR);
+        $stmt->bindParam(':logo_link', $user->getLogoLink(), PDO::PARAM_STR);
+        $stmt->bindParam(':id_city', $user->getIdCity(), PDO::PARAM_INT);
+        $stmt->bindParam(':id', $user->getId(), PDO::PARAM_INT);
+        $stmt->execute();
+
+    }
 }

@@ -82,6 +82,7 @@ div.product-search div.products-list div.product-element{
     background-color: var(--main-element-background);
     border-radius: 10px;
 }
+
 div.product-search div.products-list div.product-element img.product-images{
     object-fit: contain;
     height: 100%;
@@ -118,7 +119,11 @@ div.shop-search div.shops-list div.shop-element{
 
     border-radius: 10px;
 }
-div.shop-search div.shops-list div.shop-element img.shop-images{
+div.shop-search div.shops-list div.shop-element img{
+    max-width: 80px;
+    object-fit: contain;
+}
+div.shop-search div.shops-list div.shop-element img.images{
     object-fit: contain;
     height: 100%;
     max-height: 100px;
