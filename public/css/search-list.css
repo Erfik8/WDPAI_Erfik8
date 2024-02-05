@@ -5,7 +5,7 @@
     --main-background: #2A0D58;
 }
 
-div.product-search
+div.product-search,div.shop-search
 {
     display: flex;
     position: relative;
@@ -20,11 +20,13 @@ div.product-search
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
-div.product-search::-webkit-scrollbar{
+div.product-search::-webkit-scrollbar,
+div.shop-search::-webkit-scrollbar{
     display: none;
   }
 
-div.product-search div.input
+div.product-search div.input,
+div.shop-search div.input
 {
     display: flex;
     position: sticky;
@@ -37,7 +39,8 @@ div.product-search div.input
     z-index: 0;
     background-color: var(--main-background);
 }
-div.product-search div.input input
+div.product-search div.input input,
+div.shop-search div.input input
 {
     width: 100%;
     font-size: 16px;
@@ -48,7 +51,8 @@ div.product-search div.input input
     background-color: grey;
     color: black;
 }
-div.product-search div.input img
+div.product-search div.input img,
+div.shop-search div.input img
 {
     position: absolute;
     top: 20px;
@@ -56,6 +60,10 @@ div.product-search div.input img
     object-fit: contain;
     height: 14px;
 }
+
+
+/*Styling for products*/
+
 div.product-search div.products-list{
     display: flex;
     flex-direction: column;
@@ -74,7 +82,8 @@ div.product-search div.products-list div.product-element{
     background-color: var(--main-element-background);
     border-radius: 10px;
 }
-div.product-search div.products-list div.product-element img{
+
+div.product-search div.products-list div.product-element img.product-images{
     object-fit: contain;
     height: 100%;
     margin: auto;
@@ -87,4 +96,67 @@ div.product-search div.products-list div.product-element div.description{
 div.product-search div.products-list div.product-element div.description *{
     margin: 0px;
     font-size: 0.9em;
+}
+
+/*Styling for shops*/
+
+div.shop-search div.shops-list{
+    display: flex;
+    flex-direction: column;
+    color: var(--main-element-text-color);
+    letter-spacing: 1px;
+    text-shadow: none;
+    padding-top: 40px;
+}
+div.shop-search div.shops-list div.shop-element{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    min-height: 80px;
+    padding: 5px;
+    margin: 10px;
+    background-color: var(--main-element-background);
+
+    border-radius: 10px;
+}
+div.shop-search div.shops-list div.shop-element img{
+    max-width: 80px;
+    object-fit: contain;
+}
+div.shop-search div.shops-list div.shop-element img.images{
+    object-fit: contain;
+    height: 100%;
+    max-height: 100px;
+    margin: auto;
+}
+div.shop-search div.shops-list div.shop-element div.description{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+div.shop-search div.shops-list div.shop-element div.description *{
+    margin: 0px;
+    font-size: 0.65em;
+}
+div.shop-search div.shops-list div.shop-element div.diet-list{
+    width: 17%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+div.shop-search div.shops-list div.shop-element div.diet-list img.diets{
+    object-fit: contain;
+    flex-basis: 49%;
+    max-width: 20px;
+}
+
+img.deactive
+{
+    display: none;
+}
+
+img.active
+{
+    display: initial;
 }

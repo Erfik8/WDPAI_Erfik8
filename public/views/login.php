@@ -8,6 +8,7 @@
     <meta name="google-signin-client_id"
         content="546023060518-r9o0hkgfa2nlenu9udbkjotk77hb3dmo.apps.googleusercontent.com">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <script defer src="/public/js/login.js"></script>
     <title>LOGIN</title>
 </head>
 
@@ -36,9 +37,9 @@
             <input type="email" name="email" id="emal"value="Login">
             <input type="password" name="password" id="password" value="Password">
             <button type="submit" id="logowanie_zwykle">Zaloguj się</button>
+            <button type="button" id="Rejestracja" onclick="registerPage()">Zarejetruj się</button>
         </form>
     </div>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 
 </html>
