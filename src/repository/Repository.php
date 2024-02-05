@@ -10,7 +10,7 @@ class Repository {
         $this->database = new Database();
     }
 
-    public function getElementIdByColumnValue(string $tableName, string $columnName, mixed $searchVal): int 
+    public function getElementIdByColumnValue(string $tableName, string $columnName, $searchVal): int 
     {
         $stmt = $this->database->connect()->prepare(' 
         SELECT public."getIdFromTableByProperty"(:table_name, :column_name,:search_val) as id

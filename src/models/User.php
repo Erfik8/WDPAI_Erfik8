@@ -1,5 +1,8 @@
 <?php
 
+require_once "City.php";
+require_once "UserType.php";
+
 class User {
     private $id;
     private $email;
@@ -10,6 +13,8 @@ class User {
     private $logoLink;
     private $premiumEndingDate;
     private $idCity;
+    public $cityObject;
+    public $userTypeObject;
 
     public function __construct(
         int $id,
@@ -19,7 +24,7 @@ class User {
         string $surname,
         int $idUserType,
         string $logoLink,
-        ?DateTime $premiumEndingDate,
+        ?string $premiumEndingDate,
         int $idCity
     ) {
         $this->id = $id;
@@ -35,9 +40,11 @@ class User {
         }
         else
         {
-            $this->premiumEndingDate = $premiumEndingDate;
+            $this->premiumEndingDate = date('d/M/Y h:i:s', strtotime($premiumEndingDate) );
         }
         $this->idCity = $idCity;
+        $this->cityObject = null;
+        $this->userTypeObject = null;
     }
 
     public function getId(): int
@@ -105,7 +112,7 @@ class User {
         $this->logoLink = $logoLink;
     }
 
-    public function getPremiumEndingDate(): ?DateTime
+    public function getPremiumEndingDate(): ?string
     {
         return $this->premiumEndingDate;
     }
@@ -124,4 +131,13 @@ class User {
     {
         $this->idCity = $idCity;
     }
+    public function setCityObject(?City $cityObject): void 
+    {
+        $this->cityObject = $cityObject;
+    }
+    public function setUserTypeObject(?UserType $userTypeObject): void 
+    {
+        $this->userTypeObject = $userTypeObject;
+    }
+
 }

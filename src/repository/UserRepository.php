@@ -34,6 +34,32 @@ class UserRepository extends Repository
             $user['id_city']
         );
     }
+    public function getUserById(int $id): ?User
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public."Users"WHERE id = :id
+        ');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user == false) {
+            return null;
+        }
+
+        return new User(
+            $user['id'],
+            $user['email'],
+            $user['password'],
+            $user['name'],
+            $user['surname'],
+            $user['id_user_type'],
+            $user['logo_link'],
+            $user['premium_ending_date'],
+            $user['id_city']
+        );
+    }
     public function createUser(string $name, string $surname, string $login, string $pass, int $idCity, string $photoLink = "")
     {
         

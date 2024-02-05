@@ -17,4 +17,5 @@ Router::get('shops','ContentController');
 Router::get('getProducts','ContentController');
 Router::get('addProduct','ContentController');
 Router::get('register','SecurityController');
+Router::get('userSettings','AccountController');
 Router::run($path);

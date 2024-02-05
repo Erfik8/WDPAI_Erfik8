@@ -17,3 +17,5 @@ function sendShopSearchRequest(event) {
         window.location.href = newURL;
     }
 }
+
+document.getElementById('profile_basic_view').style.removeProperty('height');

@@ -66,7 +66,7 @@ body main div.vertical-line{
     box-sizing: content-box;
 }
 
-body section
+body section.information-block
 { 
     display: flex;
     flex-direction: column;
@@ -75,14 +75,13 @@ body section
     padding: 0px 3% 12px 4%;
     margin: 82px 4% 0 0;
     background-color: white;
-    z-index: 1;
     color: var(--text-section-color);
     border-top-right-radius: 50px;
     justify-content: space-between;
     align-items: center;
     letter-spacing: 3px;
 }
-body section img.product-image
+body section.information-block img.product-image
 {
     width: 150px;
     padding: 30px 0px 0px 0px;
@@ -92,7 +91,7 @@ body section.disabled
 {
     display: none;
 }
-body section form
+body section.information-block form
 {
     display: flex;
     flex-wrap: wrap;
@@ -102,31 +101,31 @@ body section form
     align-items: center;
 }
 
-body section h1
+body section.information-block h1
 {
     width: 100%;
     text-align: center;
     margin-bottom: 0px;
     flex-basis: 100%;
 }
-body section h3 
+body section.information-block h3 
 {
     display: inline-block;
     flex-basis: 48%;
     margin: 15px 0px
 }
-body section h5
+body section.information-block h5
 {
     display: inline-block;
     flex-basis: 100%;
     margin: 8px 0px 0px 0px;
 }
-body section input
+body section.information-block input
 {
     flex-basis: 48%;
 }
 
-body section div.diet-group
+body section.information-block div.diet-group
 {
     display: flex;
     flex-direction: row;
@@ -138,41 +137,41 @@ body section div.diet-group
 }
 
 
-body section div.diet-group button {
+body section.information-block div.diet-group button {
     border: none;
     border-radius: 35px;
     padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  body section div.diet-group button input 
+  body section.information-block div.diet-group button input 
   {
     display: none;
   }
-  body section div.diet-group button.False
+  body section.information-block div.diet-group button.False
   {
     background-color: white;
   }
-  body section div.diet-group button.False:hover
+  body section.information-block div.diet-group button.False:hover
   {
     background-color: grey;
   }
-  body section div.diet-group button.True
+  body section.information-block div.diet-group button.True
   {
     background-color: green;
   }
-  body section div.diet-group button.True:hover
+  body section.information-block div.diet-group button.True:hover
   {
     background-color: darkgreen;
   }
 
   /* Style for the graphic inside the button */
-  body section div.diet-group button img {
+  body section.information-block div.diet-group button img {
     height: 35px;
     max-width: 100%; /* Ensure the image does not exceed the button's boundaries */
   }
 
-  body section div.diet-information
+  body section.information-block div.diet-information
 {
     display: flex;
     flex-direction: row;
@@ -184,7 +183,7 @@ body section div.diet-group button {
 }
 
   /* Style for the graphic inside the button */
-  body section div.diet-information img {
+  body section.information-block div.diet-information img {
     height: 70px;
     max-width: 100%; /* Ensure the image does not exceed the button's boundaries */
   }

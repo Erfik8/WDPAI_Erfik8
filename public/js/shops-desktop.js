@@ -71,3 +71,5 @@ function setupAsyncRequests()
 }
 
 setupAsyncRequests()
+
+document.getElementById('profile_basic_view').style.removeProperty('height');

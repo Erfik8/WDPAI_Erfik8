@@ -2,14 +2,16 @@ footer {
     position: fixed;
     bottom: 0px;
     display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
     justify-content: space-around;
-    align-items: center;
-    height: var(--footer-height);
+    align-items: flex-start;
+    box-sizing: border-box;
     width: 100%;
     background-color: var(--main-yellow);
     z-index: 1;
 }
-footer div
+footer > div
 {
     display: flex;
     flex-direction: column;
@@ -19,7 +21,16 @@ footer div
     align-items: center;
     color: var(--text-dark-color);
     letter-spacing: 0px;
-
+    min-width: 80px;
+    flex-basis: 20%;
+}
+footer > div:nth-child(2)
+{
+    padding-right: 35px;
+}
+footer > div:nth-child(4)
+{
+    padding-left: 35px;
 }
 footer div p
 {
@@ -32,8 +43,10 @@ footer div img
 }
 footer div.user-element
 {
-    position: relative;
+    position: absolute;
+    transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.3s;
     top: -35px;
+    z-index: 2;
 }
 footer div.user-element img
 {
